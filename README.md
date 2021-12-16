@@ -22,13 +22,14 @@
 
 | Column             | Type       | Options                        |
 | ------------------ | ------     | ------------------------------ |
+| item_explanation   | text       | null: false                    |
 | item_name          | string     | null: false                    |
-| condition          | string     | null: false                    |
-| prefecture         | string     | null: false                    |
+| condition_id       | integer    | null: false                    |
+| prefecture_id      | integer    | null: false                    |
 | category_id        | integer    | null: false                    |
 | price              | integer    | null: false                    |
-| delivery_charge    | integer    | null: false                    |
-| time_required      | integer    | null: false                    |
+| delivery_charge_id | integer    | null: false                    |
+| time_required_id   | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
 ### Association
