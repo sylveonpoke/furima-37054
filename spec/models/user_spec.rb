@@ -25,7 +25,7 @@ RSpec.describe User, type: :model do
       it 'family_nameに半角文字が含まれていると登録できない' do
         @user.family_name = 'a0'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name 全角文字を使用してください")
+        expect(@user.errors.full_messages).to include('Family name 全角文字を使用してください')
       end
       it 'first_nameが空では登録できない' do
         @user.first_name = ''
@@ -35,7 +35,7 @@ RSpec.describe User, type: :model do
       it 'first_nameに半角文字が含まれていると登録できない' do
         @user.first_name = 'a0'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name 全角文字を使用してください")
+        expect(@user.errors.full_messages).to include('First name 全角文字を使用してください')
       end
       it 'family_name_kanaが空では登録できない' do
         @user.family_name_kana = ''
@@ -45,7 +45,7 @@ RSpec.describe User, type: :model do
       it 'family_name_kanaが全角カナ以外が含まれていると登録できない' do
         @user.family_name_kana = 'あ亜a0'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name kana 全角カナを使用してください")
+        expect(@user.errors.full_messages).to include('Family name kana 全角カナを使用してください')
       end
       it 'first_name_kanaが空では登録できない' do
         @user.first_name_kana = ''
@@ -55,7 +55,7 @@ RSpec.describe User, type: :model do
       it 'first_name_kanaが全角カナ以外が含まれていると登録できない' do
         @user.first_name_kana = 'あ亜a0'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name kana 全角カナを使用してください")
+        expect(@user.errors.full_messages).to include('First name kana 全角カナを使用してください')
       end
       it 'date_of_birthが空では登録できない' do
         @user.date_of_birth = ''
@@ -76,17 +76,20 @@ RSpec.describe User, type: :model do
       it 'passwordが英字のみでは登録できない' do
         @user.password = 'aaaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password", "Password is too short (minimum is 6 characters)")
+        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password",
+                                                      'Password is too short (minimum is 6 characters)')
       end
       it 'passwordが数字のみでは登録できない' do
         @user.password = '00000'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password", "Password is too short (minimum is 6 characters)")
+        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password",
+                                                      'Password is too short (minimum is 6 characters)')
       end
       it 'passwordに全角文字を含んでいる場合登録できない' do
         @user.password = 'あああああ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password", "Password is too short (minimum is 6 characters)")
+        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password",
+                                                      'Password is too short (minimum is 6 characters)')
       end
       it 'passwordとpassword_confirmationが不一致では登録できない' do
         @user.password_confirmation = ''
